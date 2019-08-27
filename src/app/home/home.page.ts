@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  news: any = [];
+
+  constructor(private newsService: ApiService) {
+
+    // get the news
+    this.news = [];
+    this.newsService.getNews().subscribe(
+      resp => {
+        this.news = resp;
+        console.log(this.news);
+  });
+}
 
 }

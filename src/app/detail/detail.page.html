@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{new?.title?.rendered}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <img src="{{new?._embedded['wp:featuredmedia']['0'].source_url}}" alt="Imagen Destacada" />
+        <ion-card-header>
+            <ion-card-subtitle>{{new?.date | date:'short'}}</ion-card-subtitle>
+            <ion-card-title>{{new?.title?.rendered}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <div [innerHTML]="new?.content?.rendered">
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
